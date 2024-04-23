@@ -15,7 +15,8 @@ ln -s $STEAMROOT/linux64/steamclient.so $STEAMROOT/linux64/steamservice.so
 cat <<EOF > /usr/lib/systemd/system/PalServer.service
 [Unit]
 Description=PalServer.service
-After=network.target
+Wants=network-online.target
+After=network.target network-online.target
 
 [Service]
 User=steam
